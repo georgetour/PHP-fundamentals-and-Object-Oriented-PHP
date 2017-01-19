@@ -1,5 +1,8 @@
 <?php
 
+//=========Create table for the DB==========
+
+
 $pass = '';
 $user = 'root';
 $db_host = 'localhost';

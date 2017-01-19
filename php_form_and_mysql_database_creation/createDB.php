@@ -1,5 +1,7 @@
 <?php
 
+//========Create DB============
+
 $pass = '';//It's better to have a password to your database and to your config.inc.php
 $user = 'root';
 $db_host = 'localhost';
