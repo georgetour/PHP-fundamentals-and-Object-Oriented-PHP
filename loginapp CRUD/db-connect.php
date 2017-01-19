@@ -10,7 +10,7 @@ $db = 'loginapp';
 //Connect to database
 $dbconnect = mysqli_connect($db_host,$user,$pass,$db)  OR die('Database failure connection '.mysqli_connect_error());
 if(!$dbconnect){
-    die("Database failure");
+    die("Database failure").mysqli_error($dbconnect);
 }
 
 ?>

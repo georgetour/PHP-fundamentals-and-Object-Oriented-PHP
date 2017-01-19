@@ -1,15 +1,10 @@
-
 <?php include "functions.php"; ?>
 
+<?php
 
+    updateRow();
 
-
-
-
-
-
-
-
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +22,7 @@
 
 <form id="myForm" method="post" action="update_db.php">
     <div class="container">
+        <h1>Update selected id user with new data</h1>
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
@@ -40,6 +36,7 @@
                 </div>
 
                 <div class="form-group">
+                    
                 <select name="id">
 
                     <?php
@@ -50,7 +47,8 @@
 
                 </select>
                 </div>
-                <input class="btn btn-primary" type="submit" name="register" value="Update">
+                <div><?php echo $alert; ?></div>
+                <input class="btn btn-primary" type="submit" name="update" value="Update">
             </div>
         </div>
     </div><!--End container-->

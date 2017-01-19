@@ -1,19 +1,8 @@
+<?php include "functions.php"?>
+
 <?php
 
-
-    include "db.php";
-
-
-    //Query to database the new user and password
-
-    $query = "SELECT * FROM users";
-
-    $result = mysqli_query($dbconnect,$query);
-
-    if(!$result){
-        die('query failed' .mysqli_error());
-
-    }
+    readUsersTable();
 
 ?>
 
@@ -33,13 +22,13 @@
 
 
     <div class="container">
+        <h1>Reading from users table and showing them</h1>
         <div class="row">
             <div class="col-sm-6">
                 <?php
-                //Search for all associate arrays in users
-                while($row = mysqli_fetch_assoc($result)) {
-
-
+                    //Search for all associate arrays in users
+                    while($row = mysqli_fetch_assoc($result)) {
+                    
                 ?>
 
                 <pre>
