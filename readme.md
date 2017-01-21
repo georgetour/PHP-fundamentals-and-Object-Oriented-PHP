@@ -1,5 +1,4 @@
-- Sections by advancement
-
+<h2> Sections by advancement</h2> 
 - 1. start.php To see what's PHP
 - 2. PHP fundamentals
 - 3. PHP syntax
