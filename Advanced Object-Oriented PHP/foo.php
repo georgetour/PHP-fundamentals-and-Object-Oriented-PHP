@@ -1,17 +1,30 @@
 <?php
-class Foo{
+class Xelonakia{
 
     //With the keyword final it means that this is is the final and can't be
     // overwritten from other class
-    final public function sayHello(){
-        echo 'Hello from foo';
+    function howAreYou(){
+        echo 'Hello xelonaki how are you?';
+    }
+
+    function happy(){
+        echo 'I m happy';
+    }
+
+
+    function sad(){
+        echo 'I m sad';
     }
 }
 
-//Also you can declare a class final
-final class Foo2{
+$xelonaki1 = new Xelonakia();
+$xelonaki2 = new Xelonakia();
 
-}
+$xelonaki1->howAreYou();
+$xelonaki2->happy();
+
+
+
 
 
 
