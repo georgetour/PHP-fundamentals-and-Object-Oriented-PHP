@@ -1,4 +1,4 @@
-- Sections by advancement
+-<strong> Sections by advancement</strong> 
 - 1. start To see what's PHP
 - 2. PHP fundamentals
 - 3. PHP syntax
