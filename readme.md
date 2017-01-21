@@ -1,6 +1,6 @@
 - Sections by advancement
 
-- 1. start.php To see what's PHP
+- 1. start To see what's PHP
 - 2. PHP fundamentals
 - 3. PHP syntax
 - 4. functions and conditionals
