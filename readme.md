@@ -8,3 +8,4 @@
 - 7. GET-POST Super Globals
 - 8. Cookies
 - 9. Sessions
+-10. Object-Oriented PHP
