@@ -9,3 +9,4 @@
 - 8. Cookies
 - 9. Sessions
 -10. Object-Oriented PHP
+-11. Files manipulation with PHP
