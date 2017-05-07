@@ -24,17 +24,37 @@ you in the beginning, you will love it.
 
 class User{
 
-    function register(){
+ function register(){
         echo "User registered";
     }
 
 
-
 }
+echo "============================== <br>";
 //Checks if class exists
 if(class_exists("User")){
  echo "Class exists";
 }
+
+
+//Find all classes that exist in our current php
+echo "<br> ============================== <br>";
+$my_classes = get_declared_classes();
+foreach ($my_classes as $class) {
+    echo $class . "<br>";
+}
+
+
+
+echo "<br> ============================== <br>";
+//Check class methods
+$the_methods = get_class_methods('User');
+foreach ($the_methods as $method) {
+    echo $method . "<br>";
+}
+
+
+
 
 ?>
 
