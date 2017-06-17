@@ -1,3 +1,15 @@
+<?php
+    /* https://stackoverflow.com/questions/4401949/whats-the-use-of-ob-start-in-php
+       http://myphpsource.blogspot.gr/2010/01/obstart-save-php-output-to-string-php.html
+    */
+    ob_start();
+
+?>
+
+<?php   //The init php will have all the includes
+        include('init.php')
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
