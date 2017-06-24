@@ -12,6 +12,8 @@
         <div id="page-wrapper">
 
             <?php include("includes/admin_content.php"); ?>
+            
+          
 
         </div>
         <!-- /#page-wrapper -->

@@ -10,27 +10,29 @@
 
                         <?php
 
-                        $bobiras ="'s Hertogenbosch3";
+                        
+ 
 
-                        $bobiras = $database->escape_string($bobiras);
+                        //Getting one user by id from user class
+                        // $found_user = User::find_user_by_id(2);
 
-                        $query = "UPDATE users ";
-                        $query .= "SET username = '{$bobiras}' ";
-                        $query .= "WHERE id = 1 ";
-                        $result= $database->query($query);
+                         // $user = User:: instatiation($found_user);
 
-
-
-
-                        if($result){
-                            echo "succeded";
-                        }else{
-                            die("Database error").mysqli_error($test);
-                        }
+                         // echo $user->username;
 
 
+                         $users = User::find_all_users();
+
+                         foreach($users as $user){
+
+                                echo $user->password; 
+
+                         }
 
 
+
+                        
+                        
 
 
                         ?>
