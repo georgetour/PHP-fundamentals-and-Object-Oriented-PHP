@@ -7,7 +7,7 @@
 ?>
 
 <?php   //The init php will have all the includes
-        include('init.php')
+    require_once('init.php')
 ?>
 
 <!DOCTYPE html>

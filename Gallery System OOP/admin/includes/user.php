@@ -20,9 +20,22 @@ class User{
     //Getting result one user by id
     public static function find_user_by_id($id){
 
-        $user_by_id = self::find_this_query("SELECT * FROM users WHERE id='$id' LIMIT 1");
-        $found_user = mysqli_fetch_array($user_by_id);
-        return $found_user;
+        $the_result_array= self::find_this_query("SELECT * FROM users WHERE id='$id' LIMIT 1");
+        //$found_user = mysqli_fetch_array($user_by_id);
+        
+        /*if(!empty($the_result_array)){
+            $first_item = array_shift($the_result_array);
+
+            return $first_item;
+        }else{
+            return false;
+        }*/
+
+        return !empty($the_result_array)? array_shift($the_result_array) :false;
+
+
+        
+
 
 
 
@@ -33,7 +46,7 @@ class User{
         global $database;
 
         $result_set = $database->query($sql);
-        $the_oject_array = array();
+        $the_object_array = array();
 
         // while($row = mysqli_fetch_array($result_set)){
         //         $the_oject_array[] = self::instatiation($row);
@@ -41,19 +54,19 @@ class User{
 
         //Passing the result to the array
         foreach($result_set as $result){
-            $the_oject_array[] = self::instatiation($result);
+            $the_object_array[] = self::instatiation($result);
 
         }
-        return $the_oject_array;
+        return $the_object_array;
 
 
     }
 
 
-    //Getting all properties of current class if they have values
+    //Getting all properties  if they have values
     public static function instatiation($the_record){
 
-        $the_oject = new self;
+        $the_object = new User();
 
 
         //User Properties   
@@ -66,16 +79,16 @@ class User{
 
         foreach ($the_record as $attribute => $value) {
             
-            if($the_oject->has_the_attribute($attribute)){
+            if($the_object->has_the_attribute($attribute)){
 
-                $the_oject->$attribute = $value;
+                $the_object->$attribute = $value;
 
             }    
 
         }
 
 
-        return $the_oject;
+        return $the_object;
 
     }
 
@@ -84,7 +97,7 @@ class User{
     private function has_the_attribute($attribute){
 
         $object_properties = get_object_vars($this);
-
+        
         return array_key_exists($attribute,$object_properties);
 
     }
