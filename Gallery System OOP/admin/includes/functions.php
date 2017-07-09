@@ -22,7 +22,6 @@
 //***************Checking if class file exists so we can autoload it in case we forget to include the class **************
 function classAutoLoader($class){
 
-
     $class = strtolower($class);
     $the_path = "includes/{$class}.php";
 
@@ -33,11 +32,18 @@ function classAutoLoader($class){
         die("This file name {$class}.php doesn't exist");
     }
 
-
-
 }
 
 spl_autoload_register('classAutoLoader');
+
+//Function to redirect the user if not logged in
+function redirect($location){
+
+    //Php function for redirect
+    header("Location:{$location}");
+
+
+}
 
 
 
