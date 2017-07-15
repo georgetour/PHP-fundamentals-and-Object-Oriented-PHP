@@ -56,6 +56,7 @@ if(isset($_POST['submit'])){
 
         <div class="form-group">
             <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" name="password" value="<?php echo htmlentities($password) ?>">
         </div>
 
         
