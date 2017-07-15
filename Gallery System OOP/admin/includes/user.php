@@ -33,12 +33,6 @@ class User{
 
         return !empty($the_result_array)? array_shift($the_result_array) :false;
 
-
-        
-
-
-
-
     }
 
     //Method that we use for queries and getting the result in array
@@ -54,7 +48,7 @@ class User{
 
         //Passing the result to the array
         foreach($result_set as $result){
-            $the_object_array[] = self::instatiation($result);
+            $the_object_array[] = self::instantiation($result);
 
         }
         return $the_object_array;
@@ -63,8 +57,27 @@ class User{
     }
 
 
+    public static function verify_user($username,$password){
+        global $database;
+        
+        $username = $database->escape_string($username);
+        $password = $database->escape_string($password);
+
+        $sql = "SELECT *  FROM users ";
+        $sql .= "WHERE username = '{$username}' AND password = '{$password}' ";
+        $sql .= "LIMIT 1";
+
+
+        $the_result_array= self::find_this_query($sql);
+
+        return !empty($the_result_array)? array_shift($the_result_array) :false;
+
+
+    }
+
+
     //Getting all properties  if they have values
-    public static function instatiation($the_record){
+    public static function instantiation($the_record){
 
         $the_object = new User();
 
