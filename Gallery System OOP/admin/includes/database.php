@@ -32,7 +32,7 @@ class Database{
     }
 
 
-    //Query to use for our database
+    //Query that will return result 
     public function query($sql){
 
         //Procedural
@@ -59,14 +59,16 @@ class Database{
     
 
     //Escapes special charactes for use in sql statement
-    public function  escape_string($string){
+    public function escape_string($string){
 
         $escaped_string = $this->connection->real_escape_string($string);
         return $escaped_string;
 
     }
 
-    public function the_insert_id(){
+
+    public function insert_id(){
+        //Using the mysqli insert id
         return $this->connection->insert_id;
     }
 
@@ -76,7 +78,7 @@ class Database{
 
 
 
-}
+}//End Database class
 
 
 //Creating new instance of the class Database so we can connect to db

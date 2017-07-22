@@ -21,16 +21,7 @@ class User{
     public static function find_user_by_id($id){
 
         $the_result_array= self::find_this_query("SELECT * FROM users WHERE id='$id' LIMIT 1");
-        //$found_user = mysqli_fetch_array($user_by_id);
         
-        /*if(!empty($the_result_array)){
-            $first_item = array_shift($the_result_array);
-
-            return $first_item;
-        }else{
-            return false;
-        }*/
-
         return !empty($the_result_array)? array_shift($the_result_array) :false;
 
     }
@@ -116,11 +107,58 @@ class User{
     }
 
 
+    //Create User
+    public function create(){
+    global $database;
+
+
+    //More cleaner way than the update user
+    $username   = $database->escape_string($this->username);
+    $password   = $database->escape_string($this->password);
+    $first_name = $database->escape_string($this->first_name);
+    $last_name  = $database->escape_string($this->last_name);
+ 
+    $sql = "INSERT INTO users(username,password,first_name,last_name)";
+    $sql .= "VALUES('{$username}', '{$password}', '{$first_name}', '{$last_name}')";
+        
+        //This is from the Database class so we insert id
+        if($database->query($sql)){
+            $this-> id = $database ->insert_id();    
+            return true;
+
+        }else{
+
+            return false;
+
+        }
+    
+    
+
+
+    }
+
+
+    //Update user
+    public function update(){
+        global $database;
+
+         $sql = "UPDATE users SET ";
+         $sql .= "username= '". $database->escape_string($this->username)."', ";
+         $sql .= "password= '". $database->escape_string($this->password). "', ";
+         $sql .= "first_name= '". $database->escape_string($this->first_name) . "', ";
+         $sql .= "last_name= '". $database->escape_string($this->last_name). "' " ;
+         $sql .= " WHERE id=" .$database->escape_string($this->id);
+
+         $database->query($sql);
+
+         return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+
+    }
 
 
 
 
-}
+}//End of Class User
 
 
 

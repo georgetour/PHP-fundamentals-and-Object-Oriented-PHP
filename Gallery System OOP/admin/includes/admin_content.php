@@ -8,6 +8,16 @@
                             <small>Subheading</small>
                         </h1>
 
+                        <?php 
+
+                            $found_user->last_name = "Williams2";
+
+                            $found_user->update();
+
+
+                        ?>
+
+
                         <?php echo $found_user->username; ?>
                         <ol class="breadcrumb">
                             <li>
@@ -21,5 +31,4 @@
                 </div>
                 <!-- /.row -->
 
-            </div>
-            <!-- /.container-fluid -->
+</div><!-- /.container-fluid -->

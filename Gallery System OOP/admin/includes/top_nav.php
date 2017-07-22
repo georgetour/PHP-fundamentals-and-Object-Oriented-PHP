@@ -94,7 +94,19 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><?php  echo $found_user->username;?> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
+                    
+                    <?php 
+
+                    
+
+                    $found_user = (User::find_user_by_id(3)); 
+
+                            echo $found_user->last_name;
+                    ?> 
+                    
+                    <b class="caret"></b></a>
+                    
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
