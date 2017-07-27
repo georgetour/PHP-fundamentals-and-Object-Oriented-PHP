@@ -1,24 +1,43 @@
 <div class="container-fluid">
 
+
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Blank Page
-                            <small>Subheading</small>
+                            <small>Subheading2</small>
                         </h1>
+
+                        
+
 
                         <?php 
 
-                            $found_user->last_name = "Williams2";
+                          // $user = new User();
 
-                            $found_user->update();
+                          // $user->username= "bee";
+                          // $user->password="1234";
+                          // $user->first_name= "babis";
+                          // $user->last_name="flu";
+
+                          // $user->update();
+
+                          //    $user = User::find_user_by_id(9);
+
+                          //  $user->username = "patates";
+
+                          //  $user->update();
+
+                          // // $user->delete();
+                          //  $a = 'hello';
+                          //  $$a = 'world';
+
+                          //  echo "$a $hello";
+
 
 
                         ?>
-
-
-                        <?php echo $found_user->username; ?>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>

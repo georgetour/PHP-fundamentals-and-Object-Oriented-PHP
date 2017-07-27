@@ -1,7 +1,7 @@
 <?php
 
 
-class User{
+class User extends Db_object{
 
     protected static $db_table = "users";
     protected static $db_table_fields = array('username','password','first_name','last_name');
@@ -11,18 +11,19 @@ class User{
     public $first_name;
     public $last_name;
 
+    
     //Getting all users
-    public static function find_all_users(){
+    public static function find_all(){
 
-        return self::find_this_query("SELECT * FROM users");
+        return self::find_this_query("SELECT * FROM " .self::$db_table. " ");
 
     }
 
 
     //Getting result one user by id
-    public static function find_user_by_id($id){
+    public static function find_by_id($id){
 
-        $the_result_array= self::find_this_query("SELECT * FROM users WHERE id='$id' LIMIT 1");
+        $the_result_array= self::find_this_query("SELECT * FROM " .self::$db_table. " WHERE id='$id' LIMIT 1");
         
         return !empty($the_result_array)? array_shift($the_result_array) :false;
 
@@ -56,8 +57,8 @@ class User{
         $username = $database->escape_string($username);
         $password = $database->escape_string($password);
 
-        $sql = "SELECT *  FROM users ";
-        $sql .= "WHERE username = '{$username}' AND password = '{$password}' ";
+        $sql = "SELECT *  FROM " .self::$db_table;
+        $sql .= " WHERE username = '{$username}' AND password = '{$password}' ";
         $sql .= "LIMIT 1";
 
 
@@ -93,7 +94,6 @@ class User{
 
         }
 
-
         return $the_object;
 
     }
@@ -110,6 +110,7 @@ class User{
     }
 
 
+    //Getting all properties of current class according to $db_table_fields
     protected function properties(){
 
        // return get_object_vars($this);
@@ -128,11 +129,25 @@ class User{
 
         return $properties;
 
-
-
     }
 
-    //var_dump($this->properties);
+
+
+    //Escape string properties to array
+    protected function clean_properties(){
+        global $database;
+
+        $clean_properties = array();
+
+        foreach ($this->properties() as $key => $value) {
+            
+            $clean_properties[$key] = $database->escape_string($value);
+
+        }
+
+        return $clean_properties;
+
+    }
 
 
     //If data exists update else create
@@ -149,7 +164,7 @@ class User{
     public function create(){
         global $database;
 
-        $properties=$this->properties();
+        $properties=$this->clean_properties();
 
 
     //More cleaner way than the update user
@@ -180,12 +195,20 @@ class User{
     public function update(){
         global $database;
 
+        $properties =$this->clean_properties();
+
+        $properties_pairs = array();
+
+        foreach ($properties as $key => $value) {
+
+            $properties_pairs[] = "{$key}='{$value}' ";
+
+        }
+
+
          $sql = "UPDATE " .self::$db_table ." SET ";
-         $sql .= "username= '". $database->escape_string($this->username)."', ";
-         $sql .= "password= '". $database->escape_string($this->password). "', ";
-         $sql .= "first_name= '". $database->escape_string($this->first_name) . "', ";
-         $sql .= "last_name= '". $database->escape_string($this->last_name). "' " ;
-         $sql .= " WHERE id=" .$database->escape_string($this->id);
+         $sql .= implode(", ", $properties_pairs);
+         $sql .= " WHERE id = " . $database->escape_string($this->id) ;
 
          $database->query($sql);
 
@@ -199,6 +222,7 @@ class User{
 
         global $database;
 
+        
         $id = $database->escape_string($this->id);
 
         $sql = "DELETE FROM ".self::$db_table ." WHERE id = '$id' ";

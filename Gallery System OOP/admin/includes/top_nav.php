@@ -1,7 +1,10 @@
 <!-- Brand and toggle get grouped for better mobile display -->
+            
+
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span style="" class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -95,15 +98,6 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
-                    
-                    <?php 
-
-                    
-
-                    $found_user = (User::find_user_by_id(3)); 
-
-                            echo $found_user->last_name;
-                    ?> 
                     
                     <b class="caret"></b></a>
                     
