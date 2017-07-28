@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d030efb2-e26a-4bef-af62-a006f2600e5e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gallery System OOP/admin/includes/admin_content.php" afterPath="$PROJECT_DIR$/Gallery System OOP/admin/includes/admin_content.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gallery System OOP/admin/includes/new_config.php" afterPath="$PROJECT_DIR$/Gallery System OOP/admin/includes/new_config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gallery System OOP/admin/includes/top_nav.php" afterPath="$PROJECT_DIR$/Gallery System OOP/admin/includes/top_nav.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gallery System OOP/admin/includes/user.php" afterPath="$PROJECT_DIR$/Gallery System OOP/admin/includes/user.php" />
     </list>
     <ignored path="PHP fundamentals and OOP PHP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -341,7 +337,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1703125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

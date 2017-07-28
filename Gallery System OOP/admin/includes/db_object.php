@@ -20,6 +20,28 @@ class Db_object{
 
     }
 
+    
+    //Method that we use for queries and getting the result in array
+    private static function find_this_query($sql){
+        global $database;
+
+        $result_set = $database->query($sql);
+        $the_object_array = array();
+
+        // while($row = mysqli_fetch_array($result_set)){
+        //         $the_oject_array[] = self::instatiation($row);
+        // }
+
+        //Passing the result to the array
+        foreach($result_set as $result){
+            $the_object_array[] = self::instantiation($result);
+
+        }
+        return $the_object_array;
+
+
+    }
+
 
 
 
