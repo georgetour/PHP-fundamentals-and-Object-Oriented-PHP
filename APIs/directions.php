@@ -26,26 +26,38 @@
 
 
       function initMap() {
-        var myLatLng= {lat: 39.0742, lng: 21.8243};
+         var london = {lat: 51.509865, lng: -0.118092};
+         var birmingham = {lat: 52.489471, lng: -1.898575};
 
-        // Create a map object and specify the DOM element for display.
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: myLatLng,
+          center: london,
+          scrollwheel: false,
           zoom: 7
         });
 
-        // Create a marker and set its position.
-        var marker = new google.maps.Marker({
-            map:map,
-            position: myLatLng,
-            title:'Hello'
-
-
+        var directionsDisplay = new google.maps.DirectionsRenderer({
+          map: map
         });
 
-    }
+        // Set destination, origin and travel mode.
+        var request = {
+          destination: birmingham,
+          origin: london,
+          travelMode: 'DRIVING'
+        };
+
+        // Pass the directions request to the directions service.
+        var directionsService = new google.maps.DirectionsService();
+        directionsService.route(request, function(response, status) {
+          if (status == 'OK') {
+            // Display the route on the map.
+            directionsDisplay.setDirections(response);
+          }
+        });
+      }
+
+      
     </script>
-    
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCISNTLWzly6oxatbxKlwpNT7uGRcTaiMI&callback=initMap"
     async defer></script>
   </body>
