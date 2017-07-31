@@ -51,6 +51,20 @@ class Session{
 
 
 
+    //Logs the user if it exists
+    public function login($user){
+
+        if($user){
+
+            $this->user_id = $_SESSION['user_id']= $user->id;
+            $this->signed_in = true;
+
+        }else{
+
+            $this->signed_in = false;
+        }
+
+    }
 
 
     //Checks if the user is signed in
@@ -61,17 +75,6 @@ class Session{
 
     }
 
-    //Logs the user if it exists
-    public function login($user){
-
-        if($user){
-
-            $this->user_id = $_SESSION['user_id']= $user->id;
-            $this->signed_in = true;
-
-        }
-
-    }
 
     //User logout
     public function logout(){

@@ -11,26 +11,53 @@ class User extends Db_object{
     public $first_name;
     public $last_name;
 
-    
-    
+    //Getting all records
+    public static function find_all(){
+
+        return static::find_this_query("SELECT * FROM " .self::$db_table. " ");
+
+    }
 
 
+    //Getting one result by id
+    public static function find_by_id($id){
 
-    public static function verify_user($username,$password){
-        global $database;
+        $the_result_array= self::find_this_query("SELECT * FROM " .self::$db_table. " WHERE id='$id' LIMIT 1");
         
-        $username = $database->escape_string($username);
-        $password = $database->escape_string($password);
-
-        $sql = "SELECT *  FROM " .self::$db_table;
-        $sql .= " WHERE username = '{$username}' AND password = '{$password}' ";
-        $sql .= "LIMIT 1";
-
-
-        $the_result_array= self::find_this_query($sql);
-
         return !empty($the_result_array)? array_shift($the_result_array) :false;
 
+    }
+
+
+    //Method that we use for queries and getting the result in array
+    protected static function find_this_query($sql){
+        global $database;
+
+        $result_set = $database->query($sql);
+        $the_object_array = array();
+
+        // while($row = mysqli_fetch_array($result_set)){
+        //         $the_oject_array[] = self::instatiation($row);
+        // }
+
+        //Passing the result to the array
+        foreach($result_set as $result){
+            $the_object_array[] = self::instantiation($result);
+
+        }
+        return $the_object_array;
+
+
+    }
+
+
+    //Checking the objects properties/attributes
+    private function has_the_attribute($attribute){
+
+        //Gets the properties of the given object    
+        $object_properties = get_object_vars($this);
+        
+        return array_key_exists($attribute,$object_properties);
 
     }
 
@@ -38,7 +65,7 @@ class User extends Db_object{
     //Getting all properties  if they have values
     public static function instantiation($the_record){
 
-        $the_object = new User();
+        $the_object = new self;
 
 
         //User Properties   
@@ -63,16 +90,33 @@ class User extends Db_object{
 
     }
 
+    
 
-    //Checking the objects properties/attributes
-    private function has_the_attribute($attribute){
 
-        //Gets the properties of the given object    
-        $object_properties = get_object_vars($this);
+
+    public static function verify_user($username,$password){
+        global $database;
         
-        return array_key_exists($attribute,$object_properties);
+        $username = $database->escape_string($username);
+        $password = $database->escape_string($password);
+
+        $sql = "SELECT *  FROM " .self::$db_table;
+        $sql .= " WHERE username = '{$username}' AND password = '{$password}' ";
+        $sql .= "LIMIT 1";
+
+
+        $the_result_array= self::find_this_query($sql);
+
+        return !empty($the_result_array)? array_shift($the_result_array) :false;
+
 
     }
+
+
+    
+
+
+    
 
 
     //Getting all properties of current class according to $db_table_fields
