@@ -14,15 +14,22 @@
 
                         <?php 
 
+                          // $users = User::find_all();
+                          // foreach ($users as $user){
+
+                          //   echo $user->username;
+
+                          // }
+
                           
-                          // $user = new User();
+                          $user = new User();
 
-                          // $user->username= "bee";
-                          // $user->password="1234";
-                          // $user->first_name= "babis";
-                          // $user->last_name="flu";
+                          $user->username= "bee";
+                          $user->password="1234";
+                          $user->first_name= "babis";
+                          $user->last_name="flu";
 
-                          // $user->update();
+                           $user->save();
 
                           //    $user = User::find_user_by_id(9);
 

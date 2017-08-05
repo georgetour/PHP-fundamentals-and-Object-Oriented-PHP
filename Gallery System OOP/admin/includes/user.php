@@ -11,47 +11,8 @@ class User extends Db_object{
     public $first_name;
     public $last_name;
 
-    //Getting all records
-    public static function find_all(){
 
-        return static::find_this_query("SELECT * FROM " .self::$db_table. " ");
-
-    }
-
-
-    //Getting one result by id
-    public static function find_by_id($id){
-
-        $the_result_array= self::find_this_query("SELECT * FROM " .self::$db_table. " WHERE id='$id' LIMIT 1");
-        
-        return !empty($the_result_array)? array_shift($the_result_array) :false;
-
-    }
-
-
-    //Method that we use for queries and getting the result in array
-    protected static function find_this_query($sql){
-        global $database;
-
-        $result_set = $database->query($sql);
-        $the_object_array = array();
-
-        // while($row = mysqli_fetch_array($result_set)){
-        //         $the_oject_array[] = self::instatiation($row);
-        // }
-
-        //Passing the result to the array
-        foreach($result_set as $result){
-            $the_object_array[] = self::instantiation($result);
-
-        }
-        return $the_object_array;
-
-
-    }
-
-
-    //Checking the objects properties/attributes
+    //Checking the object's properties/attributes
     private function has_the_attribute($attribute){
 
         //Gets the properties of the given object    
@@ -61,36 +22,6 @@ class User extends Db_object{
 
     }
 
-
-    //Getting all properties  if they have values
-    public static function instantiation($the_record){
-
-        $the_object = new self;
-
-
-        //User Properties   
-        /*$the_oject ->id = $found_user['id'];  
-        $the_oject ->username = $found_user['username'];
-        $the_oject ->password = $found_user['password'];
-        $the_oject ->first_name = $found_user['first_name'];
-        $the_oject ->last_name = $found_user['last_name'];
-        */
-
-        foreach ($the_record as $attribute => $value) {
-            
-            if($the_object->has_the_attribute($attribute)){
-
-                $the_object->$attribute = $value;
-
-            }    
-
-        }
-
-        return $the_object;
-
-    }
-
-    
 
 
 
@@ -105,7 +36,7 @@ class User extends Db_object{
         $sql .= "LIMIT 1";
 
 
-        $the_result_array= self::find_this_query($sql);
+        $the_result_array= self::find_by_query($sql);
 
         return !empty($the_result_array)? array_shift($the_result_array) :false;
 
