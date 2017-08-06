@@ -9,17 +9,19 @@
                             <small>Subheading2</small>
                         </h1>
 
-                        
+                        <img src="<?php echo SITE_ROOT. 'images'. DS. '_large_image_1.jpg' ?>">
 
 
                         <?php 
 
-                          $photos = Photo::find_all();
-                          foreach ($photos as $photo){
+                            
 
-                            echo $photo->title;
+                          // $photos = Photo::find_all();
+                          // foreach ($photos as $photo){
 
-                          }
+                          //   echo $photo->title;
+
+                          // }
 
                           
                           // $photo = new Photo();
