@@ -133,7 +133,7 @@ class Db_object{
 
 
 
-    //Create User
+    //Create nerw data for database
     public function create(){
         global $database;
 
@@ -164,7 +164,7 @@ class Db_object{
     }
 
 
-    //Update user
+    //Update data from database
     public function update(){
         global $database;
 
@@ -190,7 +190,7 @@ class Db_object{
     }
 
 
-    //delete user
+    //delete data from database
     public function delete(){
 
         global $database;

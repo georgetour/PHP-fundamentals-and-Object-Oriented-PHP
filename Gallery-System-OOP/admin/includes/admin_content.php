@@ -14,22 +14,32 @@
 
                         <?php 
 
-                          // $users = User::find_all();
-                          // foreach ($users as $user){
+                          $photos = Photo::find_all();
+                          foreach ($photos as $photo){
 
-                          //   echo $user->username;
+                            echo $photo->title;
 
-                          // }
+                          }
 
                           
-                          $user = new User();
+                          // $photo = new Photo();
 
-                          $user->username= "bee";
-                          $user->password="1234";
-                          $user->first_name= "babis";
-                          $user->last_name="flu";
+                          // $photo->title= "bee2";
+                          // $photo->description="animals";
+                          // $photo->filename= "animals";
+                          // $photo->type="jpg";
 
-                           $user->save();
+                          // $photo->create();
+
+
+                          // public $photo_id;
+                          // public $title;
+                          // public $description;
+                          // public $filename;
+                          // public $type;
+                          // public $size;
+
+                          //  $user->save();
 
                           //    $user = User::find_user_by_id(9);
 
