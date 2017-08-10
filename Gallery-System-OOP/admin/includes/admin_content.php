@@ -9,7 +9,6 @@
                             <small>Subheading2</small>
                         </h1>
 
-                        <img src="<?php echo SITE_ROOT. 'images'. DS. '_large_image_1.jpg' ?>">
 
 
                         <?php 
@@ -21,17 +20,23 @@
 
                           //   echo $photo->title;
 
-                          // }
+                          // 
 
                           
                           // $photo = new Photo();
 
-                          // $photo->title= "bee2";
+                          // $photo->title= "tiger";
                           // $photo->description="animals";
-                          // $photo->filename= "animals";
-                          // $photo->type="jpg";
+                          // $photo->filename= "animals2.jpg";
+                          // $photo->type="image";
 
                           // $photo->create();
+						  
+						  // $photo = Photo::find_by_id(4);
+						  
+						  // $photo->delete();
+						  
+						  
 
 
                           // public $photo_id;
