@@ -77,6 +77,7 @@ class Photo extends Db_object{
 				
 			}
 			
+			$target_path = SITE_ROOT. $this->upload_directory .DS. $this->filename ;
 			
 			if(file_exists($target_path)){
 				$this->errors[] = "The file {$target_path} exists";
