@@ -15,7 +15,7 @@ class Photo extends Db_object{
     public $size;
 
     public $tmp_path;
-    public $upload_directory = "admin/images";
+    public $upload_directory = "images";
     public $errors = array();
 
 
@@ -50,6 +50,7 @@ class Photo extends Db_object{
 		
 			$this->filename = basename($file['name']);
 			$this->tmp_path = $file['tmp_name'];
+			$this->size = $file['size'];
 			$this->type = $file['type'];
 		
 		}
@@ -57,6 +58,17 @@ class Photo extends Db_object{
 		
 		
 	}
+	
+	
+	public function picture_path(){
+		
+		return $this->upload_directory .DS. $this->filename;
+		
+	}
+	
+	
+	
+	
 	
 	//Save file info to database
 	public function save(){
