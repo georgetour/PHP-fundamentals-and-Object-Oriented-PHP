@@ -4,6 +4,33 @@
 <?php if(!$session->is_signed_in()){redirect("login.php"); }  ?>
 
 
+<?php 
+//Error message
+$message = "";
+
+if(isset($_POST['submit'])){
+	
+	$photo = new Photo();
+	$photo->title = $_POST['title'];
+	
+	//The array value must be the same with the form name file_upload
+	$photo->set_file($_FILES['file_upload']);
+	
+	if($photo->save()){
+		
+		$message = "Photo uploaded successfully";
+		
+	}else{
+		$message = join('<br>',$photo->errors);
+	}
+	
+}
+
+
+
+?>
+
+
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -26,6 +53,7 @@
                             <small>Subheading</small>
                         </h1>
 						
+						
 						<div class="col-md-3">
 							<form action="" method="post" enctype="multipart/form-data">
 							
@@ -43,10 +71,14 @@
 								
 							
 							</form>
+							
                         </div>
+						
                     </div>
                 </div>
                 <!-- /.row -->
+				
+				<div><?php echo $message; ?></div>
 
             </div>
             <!-- /.container-fluid -->

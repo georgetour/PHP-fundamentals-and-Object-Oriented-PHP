@@ -15,7 +15,7 @@ class Photo extends Db_object{
     public $size;
 
     public $tmp_path;
-    public $upload_directory = "images";
+    public $upload_directory = "admin/images";
     public $errors = array();
 
 
@@ -77,10 +77,9 @@ class Photo extends Db_object{
 				
 			}
 			
-			$target_path = SITE_ROOT . DS . $this->upload_directory . DS . $this->filename ;
 			
 			if(file_exists($target_path)){
-				$this->errors[] = "The file{} exists";
+				$this->errors[] = "The file {$target_path} exists";
 				return false;
 			}
 			
