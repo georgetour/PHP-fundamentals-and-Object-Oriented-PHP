@@ -89,7 +89,7 @@ class Photo extends Db_object{
 				
 			}
 			
-			$target_path = SITE_ROOT. $this->upload_directory .DS. $this->filename ;
+			$target_path = SITE_ROOT. DS. 'admin'. DS. $this->upload_directory .DS. $this->filename ;
 			
 			if(file_exists($target_path)){
 				$this->errors[] = "The file {$target_path} exists";
@@ -119,6 +119,26 @@ class Photo extends Db_object{
 		
 		
 	}
+	
+	//Delete the photo if it's there
+	public function delete_photo(){
+		
+		if($this->delete()){
+		
+			$target_path = SITE_ROOT .DS. 'admin' .DS. $this->picture_path();
+			
+			//Predifined function for deleting a file unlink
+			return unlink($target_path)? true : false;
+			
+		
+		}else{
+			
+			return false;
+			
+			
+		}
+	}
+	
 	
 	
 
