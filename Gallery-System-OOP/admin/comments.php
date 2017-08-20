@@ -2,7 +2,7 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!--Top navabar-->
+            <!--Top navbar-->
             <?php include("includes/top_nav.php"); ?>
             
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->

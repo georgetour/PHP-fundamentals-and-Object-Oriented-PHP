@@ -1,8 +1,9 @@
 <?php include("includes/header.php"); ?>
 <?php if(!$session->is_signed_in()){redirect("login.php"); }  ?>
 
-        
-            <!--Top navabar-->
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!--Top navbar-->
             <?php include("includes/top_nav.php"); ?>
             
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
