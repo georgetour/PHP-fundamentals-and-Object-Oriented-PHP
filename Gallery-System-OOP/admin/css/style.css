@@ -1,11 +1,8 @@
-
-@media (min-width: 768px){
-  #wrapper {padding-right: 225px; padding-left: 0;}
-  .side-nav{right: 0;left: auto;}
+.admin-image{
+	
+	width: 300px;
+	
 }
-
-
-
 
 .photo-info-box {
 
@@ -52,4 +49,12 @@ border-top: 1px solid #ddd;
 background-color: #ddd;
 padding: 10px;
 
+}
+
+
+.user-photo{
+	
+	width:65px;
+	height:65px;
+	
 }
