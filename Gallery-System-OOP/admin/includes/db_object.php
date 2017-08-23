@@ -2,6 +2,51 @@
 
 //*********Commonly used methods***********
 class Db_object{
+	
+	
+	public $errors = array();
+	//Check upload for errors
+    public $upload_errors_array = array(
+		
+		UPLOAD_ERR_OK => "No error" , 
+		UPLOAD_ERR_INI_SIZE => "Max size error" ,
+		UPLOAD_ERR_FORM_SIZE => "Max file size directive error" ,
+		UPLOAD_ERR_PARTIAL => "The upload file was partially downloaded" ,
+		UPLOAD_ERR_NO_FILE => "No file uploaded" ,
+		UPLOAD_ERR_NO_TMP_DIR => "Missing a temporary folder" ,
+		UPLOAD_ERR_CANT_WRITE => "Failed to write file to disk" ,
+		UPLOAD_ERR_EXTENSION => "A PHP extension stopped the file upload"
+
+	);
+	
+	
+	
+	
+	//This is passing $_FILES['uploaded_file'] as an argument
+	public function set_file($file){
+		
+		if(empty($file)|| !$file|| !is_array($file)){
+			
+			$this->errors[] = "There was no file uploaded here";
+			return false;
+		
+		}elseif($file['error'] != 0){
+			$this->errors[] = $this->upload_errors_array[$file['error']];
+			
+			return false;
+			
+		}else{
+		
+			$this->user_image = basename($file['name']);
+			$this->tmp_path = $file['tmp_name'];
+			$this->size = $file['size'];
+			$this->type = $file['type'];
+		
+		}
+		
+		
+	}
+	
 
 	  //Getting all records
     public static function find_all(){
@@ -205,6 +250,9 @@ class Db_object{
         return (mysqli_affected_rows($database->connection) == 1) ? true : false;
 
     }
+	
+	
+	
 
 
 

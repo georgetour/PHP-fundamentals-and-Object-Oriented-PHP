@@ -13,6 +13,47 @@ class User extends Db_object{
 	public $user_image;
 	public $upload_directory = "images";
 	public $image_placeholder = "http://via.placeholder.com/65x65&text=65 x 65" ;
+	
+	
+	
+	//Save file info to database and the file
+	public function upload_user_image(){
+		
+			if(!empty($this->errors)){
+				return false;
+			}
+			
+			if(empty($this->user_image)||empty($this->tmp_path)){
+				$this->errors[] = "the file isn't available";
+				return false;
+				
+			}
+			
+			$target_path = SITE_ROOT. DS. 'admin'. DS. $this->upload_directory .DS. $this->user_image ;
+			
+			if(file_exists($target_path)){
+				$this->errors[] = "The file {$target_path} exists";
+				return false;
+			}
+			
+			//PHP function that will that takes user_image tmp path and the destination
+			if(move_uploaded_file($this->tmp_path,$target_path)){
+				
+					unset($this->tmp_path);
+					return true;
+
+				
+			}else{
+				
+				$this->errors[]=" Problem with the folder permissions ";
+				return false;
+			}
+			
+			
+			$this->create();
+			
+		}
+
 
 	
 	
