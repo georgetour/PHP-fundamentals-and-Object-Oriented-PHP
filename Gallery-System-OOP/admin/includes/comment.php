@@ -16,7 +16,7 @@ class Comment extends Db_object{
 	//Instatiate comment
 	public static function create_comment ($photo_id, $author = "John Doe",$body= ""){
 		
-		if(!empty(photo_id) && !empty($author) && !empty($body)){
+		if(!empty($photo_id) && !empty($author) && !empty($body)){
 			
 			$comment = new Comment();
 			
@@ -36,11 +36,11 @@ class Comment extends Db_object{
 	}
 	
 	
-	public static function find_the_comments($photo_id){
+	public static function find_the_comments($photo_id = 0){
 		
 		global $database;
 		
-		$sql = "SELECT * FROM " . self::db_table; 
+		$sql = "SELECT * FROM " . self::$db_table; 
 		$sql .= " WHERE photo_id = " . $database->escape_string($photo_id);
 		$sql .= " ORDER BY photo_id ASC" ;
 		
