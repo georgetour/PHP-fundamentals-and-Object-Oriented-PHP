@@ -43,7 +43,6 @@
                            
                         </h1>
 						
-						<a class="btn btn-primary" href="add_comment.php">Add comment</a>
                         
                     </div>
 					

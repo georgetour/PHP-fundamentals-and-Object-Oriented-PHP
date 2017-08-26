@@ -50,6 +50,10 @@
     
      <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+	
+	<!--Google Charts-->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
    
 </head>
 
