@@ -20,6 +20,7 @@ if(isset($_POST['submit'])){
 		
 		$message = "Photo uploaded successfully";
 		
+		
 	}else{
 		$message = join('<br>',$photo->errors);
 	}

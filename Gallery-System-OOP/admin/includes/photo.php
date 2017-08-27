@@ -44,8 +44,9 @@ class Photo extends Db_object{
 				return false;
 			}
 			
-			if(empty($this->filename)||empty($this->tmp_path)){
+			if(empty($this->filename)){
 				$this->errors[] = "the file isn't available";
+				
 				return false;
 				
 			}

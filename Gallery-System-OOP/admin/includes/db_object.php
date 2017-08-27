@@ -37,7 +37,7 @@ class Db_object{
 			
 		}else{
 		
-			$this->user_image = basename($file['name']);
+			$this->filename = basename($file['name']);
 			$this->tmp_path = $file['tmp_name'];
 			$this->size = $file['size'];
 			$this->type = $file['type'];
