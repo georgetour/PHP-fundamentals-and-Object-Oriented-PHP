@@ -2,6 +2,18 @@
 
 <?php 
 
+
+$page = !empty($_GET['page']) ? (int)$_GET['page'] :1;
+
+
+//Limiting how many items we will show
+$items_per_page = 4;
+
+
+//Total items
+$items_total_count = Photo::count_all();
+
+
 //Find all photos
 $photos = Photo::find_all();
 
