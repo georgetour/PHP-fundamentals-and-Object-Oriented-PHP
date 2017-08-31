@@ -4,3 +4,11 @@
 	height:150px;
 	
 }
+
+.pager .active a{
+
+	color:white;
+	background-color:black;
+
+
+}

@@ -23,6 +23,10 @@ class Database{
 
         //OOP way of connecting to database
         $this->connection = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+        
+        //Universal characters support
+        mysqli_set_charset($this->connection,'utf8');
+    
 
         //Now we have all methods of mysqli class
         if($this->connection->connect_errno){

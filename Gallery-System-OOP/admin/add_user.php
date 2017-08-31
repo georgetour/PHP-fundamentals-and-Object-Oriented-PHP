@@ -23,6 +23,8 @@
 					$user -> password = $_POST['password'];
 					
 					$user->set_file($_FILES['user_image']);
+
+					print_r($_FILES['user_image']);
 					
 					
 					if(empty($_FILES['user_image'])){
@@ -32,8 +34,8 @@
 					}
 					else{
 							
-							$user->set_file($_FILES['user_image']);
-							$user->save();
+							
+							//$user->save();
 							$user->upload_user_image();
 							$message = "User created successfully";
 					}
