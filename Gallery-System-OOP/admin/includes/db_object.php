@@ -41,6 +41,8 @@ class Db_object{
 			$this->tmp_path = $file['tmp_name'];
 			$this->size = $file['size'];
 			$this->type = $file['type'];
+
+
 		
 		}
 		
@@ -128,13 +130,7 @@ class Db_object{
 
     }
 
-    //If data exists update else create
-    public function save(){
-
-        return isset($this->id)? $this->update(): $this->create();   
-
-    }
-
+   
 
     //Getting all properties of current class according to $db_table_fields
     protected function properties(){
@@ -174,6 +170,15 @@ class Db_object{
         return $clean_properties;
 
     }
+
+
+     //If data exists update else create
+    public function save(){
+
+        return isset($this->id)? $this->update(): $this->create();   
+
+    }
+
 
 
 

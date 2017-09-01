@@ -13,10 +13,38 @@ class User extends Db_object{
 	public $user_image;
 	public $upload_directory = "images";
 	public $image_placeholder = "http://via.placeholder.com/65x65&text=65 x 65" ;
+
+	//This is passing $_FILES['uploaded_file'] as an argument
+	public function set_file($file){
+		
+		if(empty($file)|| !$file|| !is_array($file)){
+			
+			$this->errors[] = "There was no file uploaded here";
+			return false;
+		
+		}elseif($file['error'] != 0){
+			$this->errors[] = $this->upload_errors_array[$file['error']];
+			
+			return false;
+			
+		}else{
+		
+			$this->user_image = basename($file['name']);
+			$this->tmp_path = $file['tmp_name'];
+			$this->size = $file['size'];
+			$this->type = $file['type'];
+
+
+		
+		}
+		
+		
+	}
 	
+
+
 	
-	
-	//Save file info to database and the file
+	//Upload file
 	public function upload_user_image(){
 		
 			if(!empty($this->errors)){
@@ -50,9 +78,10 @@ class User extends Db_object{
 			}
 			
 			
-			$this->create();
 			
-		}
+			
+	}
+
 
 
 	
