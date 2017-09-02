@@ -51,6 +51,9 @@
      <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 	
+	<!--Custom jabvascript-->
+	<script src="js/custom.js"></script>
+	
 	<!--Google Charts-->
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 

@@ -55,6 +55,13 @@
 							
 ?>
 
+<?php 
+
+//Photo modal 
+include("includes/photo_modal.php"); 
+
+?>
+
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!--Top navabar-->
@@ -72,20 +79,20 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                           Users
-                            <small>Edit User <?php echo $user->username?></small>
+                           Edit User
+                            <small><?php echo $user->username?></small>
                         </h1>
                         
                     </div>
-					<div class="col-md-4">
+					
 						<form action="" method="post" enctype="multipart/form-data">
-		
+							<div class="col-md-6">
 								<div class="form-group">
-								
-									<img class="img-responsive" src="<?php echo $user->image_path_and_placeholder();?>" >
-								
+									<a data-toggle="modal" data-target="#photo-modal" href="#"><img class="img-responsive" src="<?php echo $user->image_path_and_placeholder();?>" ></a>
 								</div>
-								
+							</div>	
+									
+							<div class="col-md-6">
 								<div class="form-group">
 								
 									<label for="user_image">Photo Upload</label>
@@ -99,8 +106,6 @@
 									<input id="username" name="username" type="text" class="form-control" value="<?php echo $user->username; ?>">
 								
 								</div>
-								
-								
 								
 								<div class="form-group">
 								
@@ -131,16 +136,17 @@
 								<?php } ?>
 								
 								<div class="info-box-delete pull-left">
-										<a  href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger btn-lg ">Delete</a>   
+										<a  id="user-id" href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger btn-lg ">Delete</a>   
 								</div>
 								
 								<div class="form-group">
 									<input type="submit" name="update_user" value="Update" class="btn btn-primary btn-lg pull-right">
 								</div>
-							</form><!--End form-->
+							</div>
+						</form><!--End form-->
 							
 							
-						</div>
+						
 						
 						
 					
