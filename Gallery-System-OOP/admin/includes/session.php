@@ -35,6 +35,7 @@ class Session{
 	}
 
 
+	//if we have empty message return empty else assign it to a session
     public function message($msg = ""){
 
         if(!empty($msg)){
@@ -50,6 +51,8 @@ class Session{
 
     }
 
+	
+	//Checking if we have message
     public function check_message(){
 
         if(isset($_SESSION['message'])){
@@ -123,3 +126,4 @@ class Session{
 }
 
 $session = new Session();
+$message = $session->message;

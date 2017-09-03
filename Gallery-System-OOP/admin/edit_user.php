@@ -32,6 +32,9 @@
 					if(empty($_FILES['user_image'])){
 						
 						$user->save();
+						$session->message("The user has been updated");
+						redirect("users.php");
+						
 					
 					}else{
 						
@@ -39,6 +42,9 @@
 						$user->save();
 						$user->upload_user_image();
 						$message = "User updated successfully";
+						$session->message("The user has been updated");
+						redirect("users.php");
+						
 					}
 		
 		
@@ -87,13 +93,15 @@ include("includes/photo_modal.php");
 					
 						<form action="" method="post" enctype="multipart/form-data">
 							<div class="col-md-6">
-								<div class="form-group">
-									<a data-toggle="modal" data-target="#photo-modal" href="#"><img class="img-responsive" src="<?php echo $user->image_path_and_placeholder();?>" ></a>
+								<div class="form-group user_image_box">
+									<a data-toggle="modal" data-target="#photo-modal" href="#">
+										<img class="img-responsive" src="<?php echo $user->image_path_and_placeholder();?>" >
+									</a>
 								</div>
 							</div>	
 									
 							<div class="col-md-6">
-								<div class="form-group">
+								<div class="form-group ">
 								
 									<label for="user_image">Photo Upload</label>
 									<input id="user_image" name="user_image" type="file" class="form-control" >
