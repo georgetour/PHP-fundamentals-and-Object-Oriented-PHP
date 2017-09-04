@@ -14,6 +14,8 @@ class User extends Db_object{
 	public $upload_directory = "images";
 	public $image_placeholder = "http://via.placeholder.com/65x65&text=65 x 65" ;
 
+	
+
 	//This is passing $_FILES['uploaded_file'] as an argument
 	public function set_file($file){
 		
@@ -134,6 +136,27 @@ class User extends Db_object{
 		
 		
 		
+	}
+
+
+
+	//Delete the photo for the user
+	public function delete_photo(){
+		
+		if($this->delete()){
+		
+			$target_path = SITE_ROOT .DS. 'admin' .DS. $this->upload_directory .DS. $this->user_image;
+			
+			//Predifined function for deleting a file unlink
+			return unlink($target_path) ? true : false;
+			
+		
+		}else{
+			
+			return false;
+			
+			
+		}
 	}
 	
 	

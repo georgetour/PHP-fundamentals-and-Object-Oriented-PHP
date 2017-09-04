@@ -33,6 +33,9 @@
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
+
+    <!--Dropzone for drag and drop images-->
+    <link href="css/dropzone.css" rel="stylesheet">
     
 
     <!-- Custom Fonts -->

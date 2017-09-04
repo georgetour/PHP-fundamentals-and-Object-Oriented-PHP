@@ -49,7 +49,7 @@ class Photo extends Db_object{
 				
 			}
 			
-			$target_path = SITE_ROOT. DS. 'admin'. DS. $this->upload_directory .DS. $this->filename ;
+			$target_path = SITE_ROOT. DS. 'admin'. DS. $this->picture_path() ;
 			
 			if(file_exists($target_path)){
 				$this->errors[] = "The file {$target_path} exists";

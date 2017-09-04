@@ -34,7 +34,7 @@
                            
                         </h1>
 						
-						<p class="bg-success"><?php echo $message?></p>
+						<p class="bg-success"><?php echo $session->message ;?></p>
 						
 						<a class="btn btn-primary" href="add_user.php">Add user</a>
                         

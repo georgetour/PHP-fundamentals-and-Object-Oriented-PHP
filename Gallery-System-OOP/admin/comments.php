@@ -33,6 +33,8 @@
                           All Comments
                            
                         </h1>
+
+                        <p class="bg-success"><?php echo $message?></p>
                         
                     </div>
 					
