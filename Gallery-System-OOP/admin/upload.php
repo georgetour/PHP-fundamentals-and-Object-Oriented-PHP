@@ -8,13 +8,32 @@
 //Error message
 $message = "";
 
-if(isset($_POST['submit'])){
+// if(isset($_POST['submit'])){
+	
+// 	$photo = new Photo();
+// 	$photo->title = $_POST['title'];
+	
+// 	//The array value must be the same with the form name file_upload
+// 	$photo->set_file($_FILES['file_upload']);
+	
+// 	if($photo->save()){
+		
+// 		$message = "Photo uploaded successfully";
+		
+		
+// 	}else{
+// 		$message = join('<br>',$photo->errors);
+// 	}
+	
+// }
+
+if(isset($_FILES['file'])){
 	
 	$photo = new Photo();
 	$photo->title = $_POST['title'];
 	
 	//The array value must be the same with the form name file_upload
-	$photo->set_file($_FILES['file_upload']);
+	$photo->set_file($_FILES['file']);
 	
 	if($photo->save()){
 		
@@ -26,6 +45,7 @@ if(isset($_POST['submit'])){
 	}
 	
 }
+
 
 
 
@@ -64,14 +84,13 @@ if(isset($_POST['submit'])){
 								</div>
 
 								<div class="form-group">
-									<label for="file_upload"> File_upload : </label>
-									<input id="file_upload" type="file" name="file_upload" class="form-control">
+									<label for="file"> File_upload : </label>
+									<input id="file" type="file" name="file" class="form-control">
 								</div>
 								
 								<div class="form-group">
 									<input type="submit" name="submit" value="Upload" class="btn btn-primary btn-lg pull-right">
 								</div>
-								
 							
 							</form>
 							
@@ -80,7 +99,21 @@ if(isset($_POST['submit'])){
                     </div>
                 </div>
                 <!-- /.row -->
-				
+
+                <hr>
+
+                <div class="row">
+	                <div class="col-lg-12">
+	                	<form action="upload.php" class="dropzone">
+
+
+	                		
+
+	                	</form>
+	                </div>
+				</div>
+
+
 				<div><?php echo $message; ?></div>
 
             </div>
