@@ -2,14 +2,24 @@
     
     $weather = "";
     $error = "";
+	$city = "";
+	
+	if(isset($_GET['city'])){
+		
+		$city = $_GET['city'];
+	}else{
+		
+		$city = "";
+		
+	}
 
-    $headers =get_headers("http://api.openweathermap.org/data/2.5/weather?q=".$_GET['city'].
+    $headers =get_headers("http://api.openweathermap.org/data/2.5/weather?q=".$city.
       "&appid=85b10f3f0bffcc284e28c0cf979febac");
     
-    if ($_GET['city'] && $headers[0] !== 'HTTP/1.1 404 Not Found') {
+    if ($city && $headers[0] !== 'HTTP/1.1 404 Not Found') {
         
      $url_contents =  
-     file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=".$_GET['city'].
+     file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=".$city.
       "&appid=85b10f3f0bffcc284e28c0cf979febac");
 
       $weatherArray = json_decode($url_contents,true);
