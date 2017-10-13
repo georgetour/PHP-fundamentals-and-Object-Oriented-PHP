@@ -16,9 +16,7 @@
 	$photo_id = $_GET['id'];
 	$comments = Comment::find_the_comments($photo_id);
 	$photo = Photo::find_by_id($photo_id);
-	
-	
-							
+					
 							
 ?>
 

@@ -34,7 +34,7 @@
                            
                         </h1>
 						
-						<p class="bg-success"><?php echo $message?></p>
+						<p class="bg-success"><?php echo $session->message ;?></p>
 						
 						<a class="btn btn-primary" href="add_user.php">Add user</a>
                         
@@ -64,7 +64,7 @@
 									
 									<td><?php echo $user->username;?>
 										<div class="action_links">
-											<a href="delete_user.php?id=<?php echo $user->id?>">Delete</a>
+											<a class="delete_link" href="delete_user.php?id=<?php echo $user->id?>">Delete</a>
 											<a href="edit_user.php?id=<?php echo $user->id?>">Edit</a>
 											
 										</div>

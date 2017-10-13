@@ -5,6 +5,9 @@
 	  <!--WYSISWYG EDITOR-->	
 	  <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 	  <script>tinymce.init({ selector:'textarea' });</script>
+
+
+    <script src="js/dropzone.js"></script>
 	  
 	  <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});

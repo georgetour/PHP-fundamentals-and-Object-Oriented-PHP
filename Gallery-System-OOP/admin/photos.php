@@ -31,6 +31,8 @@
                         <h1 class="page-header">
                            Photos
                         </h1>
+
+                        <p class="bg-success"><?php echo $message?></p>
                         
                     </div>
 					
@@ -55,7 +57,7 @@
 
 									<td><img class="admin-image" src="<?php echo $photo->picture_path(); ?>">
 										<div class="pictures_link">
-											<a href="delete_photo.php?id=<?php echo $photo->id?>">Delete</a>
+											<a class="delete_link" href="delete_photo.php?id=<?php echo $photo->id?>">Delete</a>
 											<a href="edit_photo.php?id=<?php echo $photo->id?>">Edit</a>
 											<a href="../photo.php?id=<?php echo $photo->id;  ?>">View</a>
 										</div>

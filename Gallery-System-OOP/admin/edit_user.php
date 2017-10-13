@@ -38,7 +38,7 @@
 					
 					}else{
 						
-						//$user->set_file($_FILES['user_image']);
+						$user->set_file($_FILES['user_image']);
 						$user->save();
 						$user->upload_user_image();
 						$message = "User updated successfully";

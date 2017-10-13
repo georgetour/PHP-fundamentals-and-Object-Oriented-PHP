@@ -6,10 +6,7 @@
 
 <?php    
 
-		//Error message
-		$message = "";
-
-
+		
 		$user = new User();
 		
 		//Create user in database and add the image 
@@ -27,15 +24,16 @@
 					
 					if(empty($_FILES['user_image'])){
 							
+							$session->message("User {$user->username}  created successfully");
 							$user->save();
-							$message = "User created successfully";
+							redirect("users.php");
 					}
 					else{
 							
-							
+							$session->message("User {$user->username} created successfully");
 							$user->save();
 							$user->upload_user_image();
-							$message = "User created successfully";
+							redirect("users.php");
 					}
 		
 			}else{

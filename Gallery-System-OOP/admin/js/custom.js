@@ -7,6 +7,8 @@ $(document).ready(function(){
 	var image_src_splitted;
 	var image_name;
 	var photo_id;
+
+
 	
 
 	
@@ -85,4 +87,23 @@ $(document).ready(function(){
 		
 	});
 	
+
+	
+	//****************Photo sidebar shrink************
+	$(".info-box-header").click(function(){
+
+		$(".inside").slideToggle("fast");
+		$("#toggle").toggleClass("glyphicon-menu-down glyphicon-menu-up");
+		
+	})
+
+	//****************Delete Photo ************
+	$(".delete_link").click(function(){
+
+		return confirm("Are you sure want to delete?");
+		
+	});
+
+
+
 });
