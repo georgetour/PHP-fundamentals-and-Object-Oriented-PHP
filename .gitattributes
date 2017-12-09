@@ -1,6 +1,10 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
+#Show correct language used in repository
+* linguist-vendored
+*.php linguist-vendored=false
+
 # Custom for Visual Studio
 *.cs     diff=csharp
 
