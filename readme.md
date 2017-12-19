@@ -1,4 +1,12 @@
+# PHP-fundamentals-and-Object-Oriented-PHP
+
+I have split the progress in sections if you have some or no familiarity with PHP so you can underastand some things.
+Don't forget PHP is server language and you need a server to run it. I use xampp or wampp which they make 
+your local machine a server with apache and mysql as database.
+
 ## Sections by advancement  
+
+
 1. start.php To see what's PHP
 2. PHP fundamentals
 3. PHP syntax
